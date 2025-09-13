@@ -22,5 +22,7 @@
     <a href="students/create">
         <button>Add Student</button>
     </a>
+    
+    <p><a href="/activities">View Activities Log</a></p>
 </body>
 </html>

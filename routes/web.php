@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Models\Activity;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,3 +35,9 @@ Route::get("/students", [StudentController::class, 'index']);
 Route::get("/students/create", [StudentController::class, 'create']); // > Exercise 7
 Route::post("/students", [StudentController::class, 'store']); // > Exercise 7
 Route::get("/students/{id}", [StudentController::class, 'show']);
+
+// Activities route for testing
+Route::get('/activities', function () {
+    $activities = Activity::orderBy('created_at', 'desc')->get();
+    return view('activities', compact('activities'));
+});

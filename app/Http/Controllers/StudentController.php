@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -40,10 +41,17 @@ class StudentController extends Controller
             'age' => 'required|numeric|min:18'
         ]);
 
-        Student::create([
+        $student = Student::create([
             'name' => $request->name,
             'email' => $request->email,
             'age' => $request->age
+        ]);
+
+        // > Exercise 9 (also save a record on activity table)
+        Activity::create([
+            'user_id' => null,
+            'action' => 'student_created',
+            'description' => "New student '{$student->name}' (ID: {$student->id}) was created with email '{$student->email}' and age {$student->age}."
         ]);
 
         return redirect('/students');
