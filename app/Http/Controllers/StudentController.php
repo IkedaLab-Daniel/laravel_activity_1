@@ -26,4 +26,26 @@ class StudentController extends Controller
 
         return view('student.show', compact('student'));
     }
+
+    public function create()
+    {
+        return view('student.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:students,email',
+            'age' => 'required|integer|min:1|max:120'
+        ]);
+
+        Student::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'age' => $request->age
+        ]);
+
+        return redirect('/students');
+    }
 }

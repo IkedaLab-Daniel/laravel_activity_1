@@ -31,4 +31,6 @@ Route::get('/greet/{name}', function ($name) {
 
 // > Exercise 3 (routing part)
 Route::get("/students", [StudentController::class, 'index']);
+Route::get("/students/create", [StudentController::class, 'create']); // > Exercise 7
+Route::post("/students", [StudentController::class, 'store']); // > Exercise 7
 Route::get("/students/{id}", [StudentController::class, 'show']);

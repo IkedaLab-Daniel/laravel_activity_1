@@ -9,14 +9,18 @@
     <h1>Students List</h1>
     @if($students->count() > 0)
         @foreach($students as $student)
-            <div>
-                <p>Student Name: {{ $student->name }}</p>
-                <p>Email: {{ $student->email }}</p>
+            <div class="student-card">
+                <div class="student-name">{{ $student->name }}</div>
+                <div class="student-info">Email: {{ $student->email }}</div>
+                <div class="student-info">Age: {{ $student->age }}</div>
             </div>
-            <hr>
         @endforeach
     @else
         <p>No student yet</p>
     @endif
+    <p>Add student here:</p>
+    <a href="students/create">
+        <button>Add Student</button>
+    </a>
 </body>
 </html>
