@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Exercise 45 -->
-    <h1>{{ $title }}</h1>
+    <h2>Found Student ID:{{ $student->id}}</h2>
+    <p>Name: {{ $student->name}}</p>
+    <p>Email: {{ $student->email}}</p>
 </body>
 </html>
