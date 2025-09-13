@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Exercise 45 -->
+    <!-- Exercise 4 -->
     <h1>{{ $title }}</h1>
+
+    <a href="/students">Go to Students Page here</a>
 </body>
 </html>

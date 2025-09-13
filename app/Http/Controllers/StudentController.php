@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\Activity;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -47,11 +48,11 @@ class StudentController extends Controller
             'age' => $request->age
         ]);
 
-        // > Exercise 9 (also save a record on activity table)
+        // > Exercise 9 (also save a record on activity table) - Now with user tracking
         Activity::create([
-            'user_id' => null,
+            'user_id' => Auth::id(), // Track which user created the student
             'action' => 'student_created',
-            'description' => "New student '{$student->name}' (ID: {$student->id}) was created with email '{$student->email}' and age {$student->age}."
+            'description' => "User '" . Auth::user()->name . "' created new student '{$student->name}' (ID: {$student->id}) with email '{$student->email}' and age {$student->age}."
         ]);
 
         return redirect('/students');
