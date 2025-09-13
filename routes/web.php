@@ -4,7 +4,8 @@ use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // > Exercise 4 (title variable rendering)
+    return view('welcome', ['title' => 'Laravel Blade Practice']);
 });
 
 // > Exercise 1
