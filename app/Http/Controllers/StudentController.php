@@ -35,9 +35,9 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:3',
             'email' => 'required|email|unique:students,email',
-            'age' => 'required|integer|min:1|max:120'
+            'age' => 'required|numeric|min:18'
         ]);
 
         Student::create([
